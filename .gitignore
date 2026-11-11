@@ -1,0 +1,26 @@
+# macOS / editor temporary files
+.DS_Store
+._*
+~$*
+*.swp
+.idea/
+*.iml
+.vscode/
+
+# Build output and installed dependencies
+target/
+node_modules/
+dist/
+*.log
+
+# Local secrets and runtime state
+.env
+.env.*
+!.env.example
+application-local.yml
+application-local.yaml
+application-local.properties
+mysql-data/
+
+# Local isolated checkouts
+.worktrees/

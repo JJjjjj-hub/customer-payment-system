@@ -1,0 +1,38 @@
+erDiagram
+    CUSTOMER ||--o{ CONTRACT : signs
+    CONTRACT ||--o{ RECEIVABLE : schedules
+    CUSTOMER ||--o{ PAYMENT : pays
+    PAYMENT ||--o{ PAYMENT_ALLOCATION : allocates
+    RECEIVABLE ||--o{ PAYMENT_ALLOCATION : receives
+    CUSTOMER {
+        bigint id PK
+        string customer_no UK
+        string name
+        string status
+    }
+    CONTRACT {
+        bigint id PK
+        string contract_no UK
+        bigint customer_id FK
+        decimal amount
+    }
+    RECEIVABLE {
+        bigint id PK
+        string receivable_no UK
+        bigint contract_id FK
+        decimal amount
+        date due_date
+    }
+    PAYMENT {
+        bigint id PK
+        string payment_no UK
+        bigint customer_id FK
+        date payment_date
+        decimal amount
+    }
+    PAYMENT_ALLOCATION {
+        bigint id PK
+        bigint payment_id FK
+        bigint receivable_id FK
+        decimal amount
+    }
